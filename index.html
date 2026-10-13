@@ -2,100 +2,479 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <title>Jo & Shayne RSVP</title>
+    <meta
+        name="description"
+        content="Wedding RSVP for Jo and Shayne">
 
-    <link rel="stylesheet" href="style.css">
+    <title>Jo &amp; Shayne RSVP</title>
 
+    <link
+        rel="stylesheet"
+        href="style.css">
 </head>
 
 <body>
 
-<div class="card">
+    <main class="page-shell">
 
-    <h1>Jo & Shayne</h1>
+        <section class="card">
 
-    <div class="subtitle">
-        RSVP
-    </div>
+            <header class="page-header">
 
-    <div class="intro">
+                <h1>Jo &amp; Shayne</h1>
 
-        <p>
-            We're so excited to celebrate our special day with you!
-        </p>
+                <div class="subtitle">
+                    RSVP
+                </div>
 
-        <p>
-            Please take a moment to complete this RSVP form and let us know if you'll be joining us.
-        </p>
+            </header>
 
-        <div class="details">
+            <div class="intro">
 
-            <p>
-                <strong>Date</strong><br>
-                March 18, 2027, 1:00 PM
+                <p>
+                    We're so excited to celebrate our special day with you!
+                </p>
+
+                <p>
+                    Please take a moment to complete this RSVP form and let us
+                    know if you'll be joining us.
+                </p>
+
+                <div class="details">
+
+                    <p>
+                        <strong>Date</strong><br>
+                        March 18, 2027, 1:00 PM
+                    </p>
+
+                    <p>
+                        <strong>Ceremony</strong><br>
+                        Immaculate Conception Church<br>
+                        4 P. Ledesma St, Aurora Hill<br>
+                        Baguio, Benguet
+                    </p>
+
+                    <p>
+                        <strong>Reception</strong><br>
+                        El Retiro<br>
+                        20 Outlook Dr S<br>
+                        Baguio, Benguet
+                    </p>
+
+                    <p class="deadline">
+                        Kindly submit your RSVP by
+                        <strong>January 15, 2027</strong>.
+                    </p>
+
+                    <p>
+                        We can't wait to celebrate with you! 🥂✨
+                    </p>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <section class="invite-section">
+
+                <form
+                    id="inviteForm"
+                    novalidate>
+
+                    <label for="inviteCode">
+                        Invitation Code
+                    </label>
+
+                    <small>
+                        Found on your wedding invitation
+                    </small>
+
+                    <input
+                        type="text"
+                        id="inviteCode"
+                        name="inviteCode"
+                        placeholder="Enter invitation code"
+                        autocomplete="off"
+                        autocapitalize="characters"
+                        spellcheck="false"
+                        required>
+
+                    <button
+                        type="submit"
+                        id="lookupButton">
+
+                        Continue
+
+                    </button>
+
+                </form>
+
+                <div
+                    id="statusMessage"
+                    class="status-message"
+                    role="status"
+                    aria-live="polite">
+                </div>
+
+            </section>
+
+            <section
+                id="rsvpSection"
+                class="rsvp-section hidden"
+                aria-live="polite">
+
+                <div class="section-heading">
+
+                    <p class="eyebrow">
+                        RSVP Confirmation
+                    </p>
+
+                    <h2 id="rsvpGuestName">
+                        Guest
+                    </h2>
+
+                    <p id="seatSummary">
+                    </p>
+
+                </div>
+
+                <form
+                    id="rsvpForm"
+                    novalidate>
+
+                    <fieldset class="form-group">
+
+                        <legend>
+                            Will you be attending?
+                        </legend>
+
+                        <div class="choice-grid">
+
+                            <label class="choice-card">
+
+                                <input
+                                    type="radio"
+                                    name="attendance"
+                                    value="Accept">
+
+                                <span>
+                                    Joyfully Accept
+                                </span>
+
+                            </label>
+
+                            <label class="choice-card">
+
+                                <input
+                                    type="radio"
+                                    name="attendance"
+                                    value="Decline">
+
+                                <span>
+                                    Regretfully Decline
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </fieldset>
+
+                    <div
+                        id="acceptanceFields"
+                        class="hidden">
+
+                        <div class="form-group">
+
+                            <label for="attendingCount">
+                                Number Attending
+                            </label>
+
+                            <select
+                                id="attendingCount"
+                                name="attendingCount">
+
+                                <option value="">
+                                    Select number attending
+                                </option>
+
+                            </select>
+
+                            <small id="maximumSeatsText">
+                            </small>
+
+                        </div>
+
+                        <div
+                            id="attendeeNamesSection"
+                            class="form-group hidden">
+
+                            <h3>
+                                Names of Attendees
+                            </h3>
+
+                            <p class="field-help">
+                                Please enter one name for each attendee.
+                            </p>
+
+                            <div id="attendeeFields">
+                            </div>
+
+                        </div>
+
+                        <fieldset class="form-group">
+
+                            <legend>
+                                Dietary Restrictions
+                                <span class="optional">
+                                    Optional
+                                </span>
+                            </legend>
+
+                            <p class="field-help">
+                                Select all that apply.
+                            </p>
+
+                            <div class="checkbox-grid">
+
+                                <label class="checkbox-option">
+
+                                    <input
+                                        type="checkbox"
+                                        name="dietary"
+                                        value="None"
+                                        id="dietaryNone">
+
+                                    <span>
+                                        None
+                                    </span>
+
+                                </label>
+
+                                <label class="checkbox-option">
+
+                                    <input
+                                        type="checkbox"
+                                        name="dietary"
+                                        value="Vegetarian">
+
+                                    <span>
+                                        Vegetarian
+                                    </span>
+
+                                </label>
+
+                                <label class="checkbox-option">
+
+                                    <input
+                                        type="checkbox"
+                                        name="dietary"
+                                        value="Vegan">
+
+                                    <span>
+                                        Vegan
+                                    </span>
+
+                                </label>
+
+                                <label class="checkbox-option">
+
+                                    <input
+                                        type="checkbox"
+                                        name="dietary"
+                                        value="Seafood Allergy">
+
+                                    <span>
+                                        Seafood Allergy
+                                    </span>
+
+                                </label>
+
+                                <label class="checkbox-option">
+
+                                    <input
+                                        type="checkbox"
+                                        name="dietary"
+                                        value="Nut Allergy">
+
+                                    <span>
+                                        Nut Allergy
+                                    </span>
+
+                                </label>
+
+                                <label class="checkbox-option">
+
+                                    <input
+                                        type="checkbox"
+                                        name="dietary"
+                                        value="Dairy Allergy">
+
+                                    <span>
+                                        Dairy Allergy
+                                    </span>
+
+                                </label>
+
+                                <label class="checkbox-option">
+
+                                    <input
+                                        type="checkbox"
+                                        name="dietary"
+                                        value="Gluten-Free">
+
+                                    <span>
+                                        Gluten-Free
+                                    </span>
+
+                                </label>
+
+                                <label class="checkbox-option">
+
+                                    <input
+                                        type="checkbox"
+                                        name="dietary"
+                                        value="Other"
+                                        id="dietaryOther">
+
+                                    <span>
+                                        Other
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+                            <div
+                                id="otherDietarySection"
+                                class="other-dietary hidden">
+
+                                <label for="otherDietary">
+                                    Please specify
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="otherDietary"
+                                    name="otherDietary"
+                                    placeholder="Enter other dietary restriction">
+
+                            </div>
+
+                        </fieldset>
+
+                    </div>
+
+                    <div
+                        id="formError"
+                        class="form-error hidden"
+                        role="alert">
+                    </div>
+
+                    <button
+                        type="submit"
+                        id="submitRsvpButton">
+
+                        Submit RSVP
+
+                    </button>
+
+                </form>
+
+            </section>
+
+            <section
+                id="thankYouSection"
+                class="thank-you-section hidden"
+                aria-live="polite">
+
+                <p class="eyebrow">
+                    RSVP Received
+                </p>
+
+                <h2>
+                    Thank You
+                </h2>
+
+                <p id="thankYouMessage">
+                    Your RSVP has been received.
+                </p>
+
+                <p>
+                    We look forward to celebrating with you on March 18, 2027.
+                </p>
+
+                <div class="signature">
+                    Jo &amp; Shayne
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <div
+        id="welcomeModal"
+        class="modal-overlay hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle">
+
+        <div class="modal-card">
+
+            <p
+                id="modalEyebrow"
+                class="modal-eyebrow">
+
+                Welcome
+
             </p>
 
-            <p>
-                <strong>Ceremony</strong><br>
-                Immaculate Conception Church<br>
-                4 P. Ledesma St, Aurora Hill<br>
-                Baguio, Benguet
-            </p>
+            <h2 id="modalTitle">
+                Guest Name
+            </h2>
 
-            <p>
-                <strong>Reception</strong><br>
-                El Retiro<br>
-                20 Outlook Dr S<br>
-                Baguio, Benguet
-            </p>
+            <div
+                id="modalMessage"
+                class="modal-message">
+            </div>
 
-            <p class="deadline">
-                Kindly submit your RSVP by
-                <strong>January 15, 2027</strong>.
-            </p>
+            <div
+                id="reservedSeatCard"
+                class="reserved-seat-card">
 
-            <p>
-                We can't wait to celebrate with you! 🥂✨
-            </p>
+                <span>
+                    Reserved Seats
+                </span>
+
+                <strong id="modalSeatCount">
+                    0
+                </strong>
+
+            </div>
+
+            <button
+                type="button"
+                id="modalContinueButton">
+
+                Continue
+
+            </button>
 
         </div>
 
     </div>
 
-    <hr>
-
-    <div class="invite-section">
-
-        <p>
-            Invitation Code
-        </p>
-
-        <small>
-            (Found on your wedding invitation)
-        </small>
-
-        <input
-            type="text"
-            id="inviteCode"
-            placeholder="Invitation Code">
-
-        <button onclick="lookupGuest()">
-            Continue
-        </button>
-
-        <div id="result"></div>
-
-    </div>
-
-</div>
-
-<script src="app.js"></script>
+    <script src="app.js"></script>
 
 </body>
+
 </html>
-``
