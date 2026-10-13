@@ -8,6 +8,7 @@ body{
 
     margin:0;
     padding:40px;
+
     min-height:100vh;
 
     background:#E8E1D1;
@@ -33,56 +34,41 @@ body{
     border-radius:12px;
 
     box-shadow:0 10px 30px rgba(0,0,0,.08);
+
 }
 
 h1{
 
-    margin-top:0;
-    margin-bottom:10px;
-
     text-align:center;
-
-    font-size:4.2rem;
-
-    color:#556B1E;
 
     font-family:'Beth Ellen', cursive;
 
-    font-weight:400;
+    color:#556B1E;
 
-    line-height:1.2;
+    margin-top:0;
+
+    font-size:3.8rem;
 }
 
 .subtitle{
 
     text-align:center;
 
-    color:#556B1E;
-
     letter-spacing:4px;
 
     margin-bottom:40px;
 
     text-transform:uppercase;
-
-    font-size:.85rem;
 }
 
 .intro{
 
     line-height:1.9;
-
-    text-align:left;
-}
-
-.details{
-
-    margin-top:25px;
 }
 
 .details p{
 
-    margin-bottom:25px;
+    margin-bottom:20px;
 }
 
 .deadline{
@@ -110,42 +96,24 @@ hr{
     text-align:center;
 }
 
-.invite-section p{
-
-    margin-bottom:5px;
-
-    font-weight:bold;
-}
-
-.invite-section small{
-
-    display:block;
-
-    margin-bottom:20px;
-
-    opacity:.7;
-}
-
 input{
 
     width:100%;
 
     padding:15px;
 
-    font-size:16px;
-
     border:1px solid #556B1E;
+
+    border-radius:6px;
 
     background:white;
 
     font-family:'IBM Plex Mono', monospace;
 
-    border-radius:6px;
+    font-size:16px;
 }
 
 button{
-
-    margin-top:20px;
 
     background:#556B1E;
 
@@ -155,13 +123,13 @@ button{
 
     border-radius:6px;
 
-    padding:15px 40px;
+    padding:15px 35px;
 
-    font-family:'IBM Plex Mono', monospace;
+    margin-top:20px;
 
     cursor:pointer;
 
-    transition:.2s;
+    font-family:'IBM Plex Mono', monospace;
 }
 
 button:hover{
@@ -174,71 +142,51 @@ button:hover{
     margin-top:30px;
 }
 
-/* MOBILE */
+/* WELCOME MODAL */
 
-@media screen and (max-width:768px){
+.modal-overlay{
 
-    body{
-
-        padding:12px;
-
-        align-items:flex-start;
-    }
-
-    .card{
-
-        width:100%;
-
-        padding:28px;
-
-        border-radius:12px;
-    }
-
-    h1{
-
-        font-size:2.8rem;
-    }
-
-    .subtitle{
-
-        font-size:.75rem;
-
-        letter-spacing:2px;
-
-        margin-bottom:25px;
-    }
-
-    .intro{
-
-        font-size:.95rem;
-
-        line-height:1.8;
-    }
-
-    .details p{
-
-        margin-bottom:18px;
-    }
-
-    input{
-
-        padding:16px;
-
-        font-size:16px;
-    }
-
-    button{
-
-        width:100%;
-
-        padding:16px;
-
-        font-size:16px;
-    }
-
-    hr{
-
-        margin:30px 0;
-    }
-
+    margin-top:30px;
 }
+
+.modal-card{
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.welcome-title{
+
+    font-size:1.5rem;
+
+    margin-bottom:10px;
+}
+
+.guest-name{
+
+    font-size:1.4rem;
+
+    font-weight:bold;
+
+    margin-bottom:20px;
+}
+
+.welcome-message{
+
+    line-height:1.8;
+}
+
+.reserved-box{
+
+    background:#E8CDD7;
+
+    border-radius:10px;
+
+    padding:20px
