@@ -1,520 +1,90 @@
 @import url('https://fonts.googleapis.com/css2?family=Beth+Ellen&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap');
 
 :root {
-    --page-background: #E8E1D1;
-    --card-background: #F5EFE3;
-    --surface: #FFFFFF;
-    --primary: #556B1E;
-    --primary-hover: #6D8325;
-    --primary-soft: #D9E2B8;
-    --pink: #E8CDD7;
-    --brown: #5B2D0F;
-    --error-background: #FBE4E4;
-    --error-text: #8A2424;
-    --success-background: #E6EFD4;
-    --border: rgba(85, 107, 30, 0.24);
-    --shadow: 0 14px 38px rgba(49, 53, 30, 0.12);
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-    min-height: 100vh;
-    background: var(--page-background);
-    color: var(--primary);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 16px;
-    line-height: 1.7;
-}
-
-body.modal-open {
-    overflow: hidden;
-}
-
-button,
-input,
-select {
-    font: inherit;
-}
-
-button,
-input[type="radio"],
-input[type="checkbox"],
-select {
-    cursor: pointer;
-}
-
-.page-shell {
-    width: 100%;
-    min-height: 100vh;
-    padding: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.card {
-    width: min(800px, 100%);
-    padding: 60px;
-    background: var(--card-background);
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    border-radius: 14px;
-    box-shadow: var(--shadow);
-}
-
-.page-header {
-    text-align: center;
-}
-
-h1 {
-    margin: 0 0 14px;
-    color: var(--primary);
-    font-family: 'Beth Ellen', cursive;
-    font-size: clamp(3rem, 7vw, 4rem);
-    font-weight: 400;
-    line-height: 1.25;
-}
-
-.subtitle {
-    margin-bottom: 42px;
-    font-size: 0.9rem;
-    letter-spacing: 0.3rem;
-    text-transform: uppercase;
-}
-
-.intro {
-    text-align: left;
-}
-
-.intro > p:first-child {
-    margin-top: 0;
-}
-
-.details {
-    margin-top: 28px;
-}
-
-.details p {
-    margin: 0 0 24px;
-}
-
-.deadline {
-    padding: 16px 18px;
-    background: var(--pink);
-    color: var(--brown);
-    border-radius: 9px;
-}
-
-hr {
-    margin: 42px 0;
-    border: 0;
-    border-top: 1px solid var(--border);
-}
-
-.invite-section {
-    text-align: center;
-}
-
-.invite-section form {
-    max-width: 560px;
-    margin: 0 auto;
-}
-
-label,
-legend {
-    color: var(--primary);
-    font-weight: 600;
-}
-
-.invite-section label {
-    display: block;
-    margin-bottom: 4px;
-}
-
-.invite-section small,
-.form-group small {
-    display: block;
-    margin-bottom: 18px;
-    opacity: 0.75;
-}
-
-input[type="text"],
-select {
-    width: 100%;
-    min-height: 52px;
-    padding: 13px 15px;
-    color: var(--primary);
-    background: var(--surface);
-    border: 1px solid var(--primary);
-    border-radius: 7px;
-    outline: none;
-}
-
-input[type="text"]:focus,
-select:focus {
-    border-color: var(--primary-hover);
-    box-shadow: 0 0 0 3px rgba(85, 107, 30, 0.14);
-}
-
-#inviteCode {
-    text-transform: uppercase;
-}
-
-button {
-    min-height: 50px;
-    padding: 13px 34px;
-    color: #FFFFFF;
-    background: var(--primary);
-    border: 0;
-    border-radius: 7px;
-    font-weight: 500;
-    transition:
-        background 160ms ease,
-        transform 160ms ease,
-        opacity 160ms ease;
-}
-
-button:hover:not(:disabled) {
-    background: var(--primary-hover);
-    transform: translateY(-1px);
-}
-
-button:disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
-}
-
-.invite-section button {
-    margin-top: 20px;
-}
-
-.status-message {
-    min-height: 1.6em;
-    margin-top: 20px;
-}
-
-.status-message.error {
-    padding: 14px;
-    color: var(--error-text);
-    background: var(--error-background);
-    border-radius: 8px;
-}
-
-.status-message.loading {
-    color: var(--primary);
-}
-
-.hidden {
-    display: none !important;
-}
-
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 1000;
-    padding: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(42, 46, 31, 0.65);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-}
-
-.modal-card {
-    width: min(500px, 100%);
-    max-height: calc(100vh - 44px);
-    overflow-y: auto;
-    padding: 42px;
-    text-align: center;
-    background: var(--card-background);
-    border: 1px solid rgba(255, 255, 255, 0.55);
-    border-radius: 16px;
-    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
-    animation: modalEnter 180ms ease-out;
-}
-
-@keyframes modalEnter {
-    from {
-        opacity: 0;
-        transform: translateY(12px) scale(0.98);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-.modal-eyebrow,
-.eyebrow {
-    margin: 0 0 8px;
-    font-size: 0.82rem;
-    letter-spacing: 0.16rem;
-    text-transform: uppercase;
-}
-
-.modal-card h2 {
-    margin: 0 0 20px;
-    color: var(--primary);
-    font-size: clamp(1.5rem, 5vw, 2.1rem);
-    line-height: 1.35;
-}
-
-.modal-message {
-    margin-bottom: 22px;
-}
-
-.modal-message p {
-    margin: 0 0 14px;
-}
-
-.reserved-seat-card {
-    margin: 24px 0;
-    padding: 18px;
-    background: var(--pink);
-    color: var(--brown);
-    border-radius: 10px;
-}
-
-.reserved-seat-card span {
-    display: block;
-    font-size: 0.86rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08rem;
-}
-
-.reserved-seat-card strong {
-    display: block;
-    margin-top: 6px;
-    font-size: 2.35rem;
-    line-height: 1.1;
-}
-
-.modal-card button {
-    width: 100%;
-}
-
-.rsvp-section,
-.thank-you-section {
-    margin-top: 44px;
-    padding: 36px;
-    background: rgba(255, 255, 255, 0.62);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-}
-
-.section-heading,
-.thank-you-section {
-    text-align: center;
-}
-
-.section-heading h2,
-.thank-you-section h2 {
-    margin: 0 0 12px;
-    color: var(--primary);
-    font-size: 1.65rem;
-}
-
-#seatSummary {
-    margin-bottom: 30px;
-}
-
-.form-group {
-    margin: 0 0 30px;
-    padding: 0;
-    border: 0;
-}
-
-.form-group legend {
-    width: 100%;
-    margin-bottom: 14px;
-}
-
-.choice-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-}
-
-.choice-card,
-.checkbox-option {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-}
-
-.choice-card {
-    min-height: 60px;
-    padding: 14px;
-}
-
-.choice-card:has(input:checked),
-.checkbox-option:has(input:checked) {
-    background: var(--primary-soft);
-    border-color: var(--primary);
-}
-
-.choice-card input,
-.checkbox-option input {
-    width: 18px;
-    height: 18px;
-    accent-color: var(--primary);
-    flex: 0 0 auto;
-}
-
-.form-group > label {
-    display: block;
-    margin-bottom: 9px;
-}
-
-.field-help {
-    margin: -4px 0 16px;
-    font-size: 0.9rem;
-    opacity: 0.78;
-}
-
-.optional {
-    font-size: 0.8rem;
-    font-weight: 400;
-    opacity: 0.72;
-}
-
-#attendeeFields {
-    display: grid;
-    gap: 15px;
-}
-
-.attendee-field label {
-    display: block;
-    margin-bottom: 7px;
-}
-
-.checkbox-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-}
-
-.checkbox-option {
-    min-height: 50px;
-    padding: 12px;
-    font-weight: 400;
-}
-
-.other-dietary {
-    margin-top: 16px;
-}
-
-.other-dietary label {
-    display: block;
-    margin-bottom: 8px;
-}
-
-.form-error {
-    margin-bottom: 20px;
-    padding: 14px;
-    color: var(--error-text);
-    background: var(--error-background);
-    border-radius: 8px;
-}
-
-#submitRsvpButton {
-    width: 100%;
-}
-
-.thank-you-section p {
-    margin: 0 0 16px;
-}
-
-.signature {
-    margin-top: 26px;
-    color: var(--primary);
-    font-family: 'Beth Ellen', cursive;
-    font-size: 2.1rem;
-}
+  --page-background: #E8E1D1;
+  --card-background: #F5EFE3;
+  --surface: #FFFFFF;
+  --primary: #556B1E;
+  --primary-hover: #6D8325;
+  --primary-soft: #D9E2B8;
+  --pink: #E8CDD7;
+  --brown: #5B2D0F;
+  --error-background: #FBE4E4;
+  --error-text: #8A2424;
+  --border: rgba(85, 107, 30, 0.24);
+  --shadow: 0 14px 38px rgba(49, 53, 30, 0.12);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-height: 100vh; background: var(--page-background); color: var(--primary); font-family: 'IBM Plex Mono', monospace; font-size: 16px; line-height: 1.7; }
+body.modal-open { overflow: hidden; }
+button, input, select { font: inherit; }
+button, input[type="radio"], input[type="checkbox"], select { cursor: pointer; }
+.page-shell { width: 100%; min-height: 100vh; padding: 40px; display: flex; justify-content: center; align-items: center; }
+.card { width: min(800px, 100%); padding: 60px; background: var(--card-background); border: 1px solid rgba(255,255,255,.45); border-radius: 14px; box-shadow: var(--shadow); }
+.page-header, .invite-section, .section-heading, .thank-you-section { text-align: center; }
+h1 { margin: 0 0 14px; color: var(--primary); font-family: 'Beth Ellen', cursive; font-size: clamp(3rem,7vw,4rem); font-weight: 400; line-height: 1.25; }
+.subtitle { margin-bottom: 42px; font-size: .9rem; letter-spacing: .3rem; text-transform: uppercase; }
+.intro { text-align: left; }
+.intro > p:first-child { margin-top: 0; }
+.details { margin-top: 28px; }
+.details p { margin: 0 0 24px; }
+.deadline, .info-note { padding: 16px 18px; background: var(--pink); color: var(--brown); border-radius: 9px; }
+.info-note { margin-bottom: 18px; font-size: .9rem; }
+hr { margin: 42px 0; border: 0; border-top: 1px solid var(--border); }
+.invite-section form { max-width: 560px; margin: 0 auto; }
+label, legend { color: var(--primary); font-weight: 600; }
+.invite-section label, .form-group > label, .conditional-field label { display: block; margin-bottom: 8px; }
+.invite-section small, .form-group small { display: block; margin-bottom: 18px; opacity: .75; }
+input[type="text"], select { width: 100%; min-height: 52px; padding: 13px 15px; color: var(--primary); background: var(--surface); border: 1px solid var(--primary); border-radius: 7px; outline: none; }
+input[type="text"]:focus, select:focus { border-color: var(--primary-hover); box-shadow: 0 0 0 3px rgba(85,107,30,.14); }
+#inviteCode, #plateNumber { text-transform: uppercase; }
+button { min-height: 50px; padding: 13px 34px; color: #fff; background: var(--primary); border: 0; border-radius: 7px; font-weight: 500; transition: background 160ms ease, transform 160ms ease, opacity 160ms ease; }
+button:hover:not(:disabled) { background: var(--primary-hover); transform: translateY(-1px); }
+button:disabled { cursor: not-allowed; opacity: .6; }
+.invite-section button { width: 100%; margin-top: 20px; }
+.status-message { min-height: 1.6em; margin-top: 20px; }
+.status-message.error, .form-error { padding: 14px; color: var(--error-text); background: var(--error-background); border-radius: 8px; }
+.hidden { display: none !important; }
+.modal-overlay { position: fixed; inset: 0; z-index: 1000; padding: 22px; display: flex; align-items: center; justify-content: center; background: rgba(42,46,31,.65); backdrop-filter: blur(5px); }
+.modal-card { width: min(500px,100%); max-height: calc(100vh - 44px); overflow-y: auto; padding: 42px; text-align: center; background: var(--card-background); border-radius: 16px; box-shadow: 0 24px 70px rgba(0,0,0,.3); }
+.modal-eyebrow, .eyebrow { margin: 0 0 8px; font-size: .82rem; letter-spacing: .16rem; text-transform: uppercase; }
+.modal-card h2 { margin: 0 0 20px; font-size: clamp(1.5rem,5vw,2.1rem); }
+.modal-message { margin-bottom: 22px; }
+.modal-message p { margin: 0 0 14px; }
+.reserved-seat-card { margin: 24px 0; padding: 18px; background: var(--pink); color: var(--brown); border-radius: 10px; }
+.reserved-seat-card span { display: block; font-size: .86rem; text-transform: uppercase; letter-spacing: .08rem; }
+.reserved-seat-card strong { display: block; margin-top: 6px; font-size: 2.35rem; }
+.modal-card button, #submitRsvpButton { width: 100%; }
+.rsvp-section, .thank-you-section { margin-top: 44px; padding: 36px; background: rgba(255,255,255,.62); border: 1px solid var(--border); border-radius: 12px; }
+.section-heading h2, .thank-you-section h2 { margin: 0 0 12px; }
+#seatSummary { margin-bottom: 30px; }
+.form-group { margin: 0 0 30px; padding: 0; border: 0; }
+.form-group legend { width: 100%; margin-bottom: 14px; }
+.choice-grid, .checkbox-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+.choice-card, .checkbox-option { display: flex; align-items: center; gap: 10px; min-height: 54px; padding: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+.choice-card:has(input:checked), .checkbox-option:has(input:checked) { background: var(--primary-soft); border-color: var(--primary); }
+.choice-card input, .checkbox-option input { width: 18px; height: 18px; accent-color: var(--primary); flex: 0 0 auto; }
+.field-help { margin: -4px 0 16px; font-size: .9rem; opacity: .78; }
+.optional { font-size: .8rem; font-weight: 400; opacity: .72; }
+#attendeeFields { display: grid; gap: 15px; }
+.attendee-field label { display: block; margin-bottom: 7px; }
+.conditional-field { margin-top: 18px; }
+.conditional-field select + label { margin-top: 16px; }
+.form-error { margin-bottom: 20px; }
+.thank-you-section p { margin: 0 0 16px; }
+.signature { margin-top: 26px; font-family: 'Beth Ellen', cursive; font-size: 2.1rem; }
 
 @media screen and (max-width: 768px) {
-    .page-shell {
-        padding: 12px;
-        align-items: flex-start;
-    }
-
-    .card {
-        padding: 28px 22px;
-        border-radius: 12px;
-    }
-
-    h1 {
-        font-size: 2.65rem;
-    }
-
-    .subtitle {
-        margin-bottom: 28px;
-        font-size: 0.78rem;
-        letter-spacing: 0.2rem;
-    }
-
-    .intro {
-        font-size: 0.94rem;
-        line-height: 1.75;
-    }
-
-    hr {
-        margin: 32px 0;
-    }
-
-    .invite-section button {
-        width: 100%;
-    }
-
-    .modal-overlay {
-        padding: 12px;
-        align-items: center;
-    }
-
-    .modal-card {
-        max-height: calc(100vh - 24px);
-        padding: 30px 22px;
-    }
-
-    .rsvp-section,
-    .thank-you-section {
-        margin-top: 32px;
-        padding: 25px 18px;
-    }
-
-    .choice-grid,
-    .checkbox-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .choice-card,
-    .checkbox-option {
-        min-height: 54px;
-    }
-}
-
-@media screen and (max-width: 390px) {
-    .card {
-        padding: 24px 17px;
-    }
-
-    h1 {
-        font-size: 2.35rem;
-    }
-
-    .modal-card {
-        padding: 26px 18px;
-    }
+  .page-shell { padding: 12px; align-items: flex-start; }
+  .card { padding: 28px 22px; border-radius: 12px; }
+  h1 { font-size: 2.65rem; }
+  .subtitle { margin-bottom: 28px; font-size: .78rem; letter-spacing: .2rem; }
+  .intro { font-size: .94rem; line-height: 1.75; }
+  hr { margin: 32px 0; }
+  .modal-overlay { padding: 12px; }
+  .modal-card { max-height: calc(100vh - 24px); padding: 30px 22px; }
+  .rsvp-section, .thank-you-section { margin-top: 32px; padding: 25px 18px; }
+  .choice-grid, .checkbox-grid { grid-template-columns: 1fr; }
 }
