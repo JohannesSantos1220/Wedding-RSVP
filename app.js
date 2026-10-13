@@ -9,8 +9,10 @@ function lookupGuest() {
         .trim();
 
     if (!code) {
+
         alert("Please enter your invitation code.");
         return;
+
     }
 
     fetch(
@@ -18,7 +20,9 @@ function lookupGuest() {
         "?code=" +
         encodeURIComponent(code)
     )
+
     .then(response => response.json())
+
     .then(data => {
 
         console.log(data);
@@ -38,8 +42,8 @@ function lookupGuest() {
                     </div>
 
                     <p class="welcome-message">
-                        We are honored to celebrate
-                        our special day with you.
+                        We are honored to celebrate our
+                        special day with you.
                     </p>
 
                     <div class="seat-box">
@@ -66,12 +70,17 @@ function lookupGuest() {
 
             `;
 
-        } else {
+        }
+
+        else {
 
             document.getElementById("result").innerHTML = `
 
                 <div class="error-card">
-                    Sorry, we could not find that invitation code.
+
+                    Sorry, we could not find
+                    that invitation code.
+
                 </div>
 
             `;
@@ -79,4 +88,44 @@ function lookupGuest() {
         }
 
     })
-    .catch
+
+    .catch(error => {
+
+        console.error(error);
+
+        document.getElementById("result").innerHTML = `
+
+            <div class="error-card">
+
+                Unable to connect to RSVP system.
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+function showRSVPForm(guest, seats) {
+
+    document.getElementById("result").innerHTML = `
+
+        <div class="welcome-card">
+
+            <h2>RSVP Form</h2>
+
+            <p><strong>Guest:</strong> ${guest}</p>
+
+            <p><strong>Reserved Seats:</strong> ${seats}</p>
+
+            <p>
+                RSVP form will be added
+                in the next step.
+            </p>
+
+        </div>
+
+    `;
+
+}
