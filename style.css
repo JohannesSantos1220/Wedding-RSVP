@@ -5,188 +5,164 @@
 }
 
 body{
-
     margin:0;
     padding:40px;
-
     min-height:100vh;
-
     background:#E8E1D1;
-
     font-family:'IBM Plex Mono', monospace;
-
     color:#556B1E;
-
     display:flex;
     justify-content:center;
     align-items:center;
 }
 
 .card{
-
     width:800px;
     max-width:100%;
-
     background:#F5EFE3;
-
     padding:60px;
-
     border-radius:12px;
-
     box-shadow:0 10px 30px rgba(0,0,0,.08);
-
 }
 
 h1{
-
     text-align:center;
-
     font-family:'Beth Ellen', cursive;
-
     color:#556B1E;
-
     margin-top:0;
-
     font-size:3.8rem;
 }
 
 .subtitle{
-
     text-align:center;
-
     letter-spacing:4px;
-
     margin-bottom:40px;
-
     text-transform:uppercase;
 }
 
 .intro{
-
     line-height:1.9;
 }
 
 .details p{
-
     margin-bottom:20px;
 }
 
 .deadline{
-
     background:#E8CDD7;
-
     color:#5B2D0F;
-
     padding:15px;
-
     border-radius:8px;
 }
 
 hr{
-
     border:none;
-
     border-top:1px solid rgba(85,107,30,.2);
-
     margin:40px 0;
 }
 
 .invite-section{
-
     text-align:center;
 }
 
 input{
-
     width:100%;
-
     padding:15px;
-
     border:1px solid #556B1E;
-
     border-radius:6px;
-
     background:white;
-
     font-family:'IBM Plex Mono', monospace;
-
     font-size:16px;
 }
 
 button{
-
     background:#556B1E;
-
     color:white;
-
     border:none;
-
     border-radius:6px;
-
     padding:15px 35px;
-
     margin-top:20px;
-
     cursor:pointer;
-
     font-family:'IBM Plex Mono', monospace;
 }
 
 button:hover{
-
     background:#6D8325;
 }
 
 #result{
-
     margin-top:30px;
 }
 
-/* WELCOME MODAL */
-
-.modal-overlay{
-
-    margin-top:30px;
-}
-
-.modal-card{
-
+.welcome-card{
     background:white;
-
+    padding:30px;
     border-radius:12px;
-
-    padding:35px;
-
     text-align:center;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.1);
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
 }
 
-.welcome-title{
-
-    font-size:1.5rem;
-
-    margin-bottom:10px;
+.welcome-heading{
+    color:#556B1E;
 }
 
 .guest-name{
-
     font-size:1.4rem;
-
     font-weight:bold;
-
     margin-bottom:20px;
 }
 
 .welcome-message{
-
     line-height:1.8;
 }
 
-.reserved-box{
-
+.seat-box{
+    margin:20px 0;
     background:#E8CDD7;
-
+    padding:20px;
     border-radius:10px;
+}
 
-    padding:20px
+.seat-label{
+    font-size:.9rem;
+}
+
+.seat-number{
+    font-size:2.5rem;
+    font-weight:bold;
+}
+
+.continue-button{
+    width:100%;
+}
+
+.error-card{
+    background:#ffe6e6;
+    padding:20px;
+    border-radius:10px;
+}
+
+@media(max-width:768px){
+
+    body{
+        padding:15px;
+        align-items:flex-start;
+    }
+
+    .card{
+        width:100%;
+        padding:25px;
+    }
+
+    h1{
+        font-size:2.7rem;
+    }
+
+    button{
+        width:100%;
+    }
+
+    .guest-name{
+        font-size:1.2rem;
+    }
+}
