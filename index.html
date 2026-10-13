@@ -1,480 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-    <meta
-        name="description"
-        content="Wedding RSVP for Jo and Shayne">
-
-    <title>Jo &amp; Shayne RSVP</title>
-
-    <link
-        rel="stylesheet"
-        href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wedding RSVP for Jo and Shayne">
+  <title>Jo &amp; Shayne RSVP</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <main class="page-shell">
-
-        <section class="card">
-
-            <header class="page-header">
-
-                <h1>Jo &amp; Shayne</h1>
-
-                <div class="subtitle">
-                    RSVP
-                </div>
-
-            </header>
-
-            <div class="intro">
-
-                <p>
-                    We're so excited to celebrate our special day with you!
-                </p>
-
-                <p>
-                    Please take a moment to complete this RSVP form and let us
-                    know if you'll be joining us.
-                </p>
-
-                <div class="details">
-
-                    <p>
-                        <strong>Date</strong><br>
-                        March 18, 2027, 1:00 PM
-                    </p>
-
-                    <p>
-                        <strong>Ceremony</strong><br>
-                        Immaculate Conception Church<br>
-                        4 P. Ledesma St, Aurora Hill<br>
-                        Baguio, Benguet
-                    </p>
-
-                    <p>
-                        <strong>Reception</strong><br>
-                        El Retiro<br>
-                        20 Outlook Dr S<br>
-                        Baguio, Benguet
-                    </p>
-
-                    <p class="deadline">
-                        Kindly submit your RSVP by
-                        <strong>January 15, 2027</strong>.
-                    </p>
-
-                    <p>
-                        We can't wait to celebrate with you! 🥂✨
-                    </p>
-
-                </div>
-
-            </div>
-
-            <hr>
-
-            <section class="invite-section">
-
-                <form
-                    id="inviteForm"
-                    novalidate>
-
-                    <label for="inviteCode">
-                        Invitation Code
-                    </label>
-
-                    <small>
-                        Found on your wedding invitation
-                    </small>
-
-                    <input
-                        type="text"
-                        id="inviteCode"
-                        name="inviteCode"
-                        placeholder="Enter invitation code"
-                        autocomplete="off"
-                        autocapitalize="characters"
-                        spellcheck="false"
-                        required>
-
-                    <button
-                        type="submit"
-                        id="lookupButton">
-
-                        Continue
-
-                    </button>
-
-                </form>
-
-                <div
-                    id="statusMessage"
-                    class="status-message"
-                    role="status"
-                    aria-live="polite">
-                </div>
-
-            </section>
-
-            <section
-                id="rsvpSection"
-                class="rsvp-section hidden"
-                aria-live="polite">
-
-                <div class="section-heading">
-
-                    <p class="eyebrow">
-                        RSVP Confirmation
-                    </p>
-
-                    <h2 id="rsvpGuestName">
-                        Guest
-                    </h2>
-
-                    <p id="seatSummary">
-                    </p>
-
-                </div>
-
-                <form
-                    id="rsvpForm"
-                    novalidate>
-
-                    <fieldset class="form-group">
-
-                        <legend>
-                            Will you be attending?
-                        </legend>
-
-                        <div class="choice-grid">
-
-                            <label class="choice-card">
-
-                                <input
-                                    type="radio"
-                                    name="attendance"
-                                    value="Accept">
-
-                                <span>
-                                    Joyfully Accept
-                                </span>
-
-                            </label>
-
-                            <label class="choice-card">
-
-                                <input
-                                    type="radio"
-                                    name="attendance"
-                                    value="Decline">
-
-                                <span>
-                                    Regretfully Decline
-                                </span>
-
-                            </label>
-
-                        </div>
-
-                    </fieldset>
-
-                    <div
-                        id="acceptanceFields"
-                        class="hidden">
-
-                        <div class="form-group">
-
-                            <label for="attendingCount">
-                                Number Attending
-                            </label>
-
-                            <select
-                                id="attendingCount"
-                                name="attendingCount">
-
-                                <option value="">
-                                    Select number attending
-                                </option>
-
-                            </select>
-
-                            <small id="maximumSeatsText">
-                            </small>
-
-                        </div>
-
-                        <div
-                            id="attendeeNamesSection"
-                            class="form-group hidden">
-
-                            <h3>
-                                Names of Attendees
-                            </h3>
-
-                            <p class="field-help">
-                                Please enter one name for each attendee.
-                            </p>
-
-                            <div id="attendeeFields">
-                            </div>
-
-                        </div>
-
-                        <fieldset class="form-group">
-
-                            <legend>
-                                Dietary Restrictions
-                                <span class="optional">
-                                    Optional
-                                </span>
-                            </legend>
-
-                            <p class="field-help">
-                                Select all that apply.
-                            </p>
-
-                            <div class="checkbox-grid">
-
-                                <label class="checkbox-option">
-
-                                    <input
-                                        type="checkbox"
-                                        name="dietary"
-                                        value="None"
-                                        id="dietaryNone">
-
-                                    <span>
-                                        None
-                                    </span>
-
-                                </label>
-
-                                <label class="checkbox-option">
-
-                                    <input
-                                        type="checkbox"
-                                        name="dietary"
-                                        value="Vegetarian">
-
-                                    <span>
-                                        Vegetarian
-                                    </span>
-
-                                </label>
-
-                                <label class="checkbox-option">
-
-                                    <input
-                                        type="checkbox"
-                                        name="dietary"
-                                        value="Vegan">
-
-                                    <span>
-                                        Vegan
-                                    </span>
-
-                                </label>
-
-                                <label class="checkbox-option">
-
-                                    <input
-                                        type="checkbox"
-                                        name="dietary"
-                                        value="Seafood Allergy">
-
-                                    <span>
-                                        Seafood Allergy
-                                    </span>
-
-                                </label>
-
-                                <label class="checkbox-option">
-
-                                    <input
-                                        type="checkbox"
-                                        name="dietary"
-                                        value="Nut Allergy">
-
-                                    <span>
-                                        Nut Allergy
-                                    </span>
-
-                                </label>
-
-                                <label class="checkbox-option">
-
-                                    <input
-                                        type="checkbox"
-                                        name="dietary"
-                                        value="Dairy Allergy">
-
-                                    <span>
-                                        Dairy Allergy
-                                    </span>
-
-                                </label>
-
-                                <label class="checkbox-option">
-
-                                    <input
-                                        type="checkbox"
-                                        name="dietary"
-                                        value="Gluten-Free">
-
-                                    <span>
-                                        Gluten-Free
-                                    </span>
-
-                                </label>
-
-                                <label class="checkbox-option">
-
-                                    <input
-                                        type="checkbox"
-                                        name="dietary"
-                                        value="Other"
-                                        id="dietaryOther">
-
-                                    <span>
-                                        Other
-                                    </span>
-
-                                </label>
-
-                            </div>
-
-                            <div
-                                id="otherDietarySection"
-                                class="other-dietary hidden">
-
-                                <label for="otherDietary">
-                                    Please specify
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="otherDietary"
-                                    name="otherDietary"
-                                    placeholder="Enter other dietary restriction">
-
-                            </div>
-
-                        </fieldset>
-
-                    </div>
-
-                    <div
-                        id="formError"
-                        class="form-error hidden"
-                        role="alert">
-                    </div>
-
-                    <button
-                        type="submit"
-                        id="submitRsvpButton">
-
-                        Submit RSVP
-
-                    </button>
-
-                </form>
-
-            </section>
-
-            <section
-                id="thankYouSection"
-                class="thank-you-section hidden"
-                aria-live="polite">
-
-                <p class="eyebrow">
-                    RSVP Received
-                </p>
-
-                <h2>
-                    Thank You
-                </h2>
-
-                <p id="thankYouMessage">
-                    Your RSVP has been received.
-                </p>
-
-                <p>
-                    We look forward to celebrating with you on March 18, 2027.
-                </p>
-
-                <div class="signature">
-                    Jo &amp; Shayne
-                </div>
-
-            </section>
-
-        </section>
-
-    </main>
-
-    <div
-        id="welcomeModal"
-        class="modal-overlay hidden"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modalTitle">
-
-        <div class="modal-card">
-
-            <p
-                id="modalEyebrow"
-                class="modal-eyebrow">
-
-                Welcome
-
-            </p>
-
-            <h2 id="modalTitle">
-                Guest Name
-            </h2>
-
-            <div
-                id="modalMessage"
-                class="modal-message">
-            </div>
-
-            <div
-                id="reservedSeatCard"
-                class="reserved-seat-card">
-
-                <span>
-                    Reserved Seats
-                </span>
-
-                <strong id="modalSeatCount">
-                    0
-                </strong>
-
-            </div>
-
-            <button
-                type="button"
-                id="modalContinueButton">
-
-                Continue
-
-            </button>
-
+<main class="page-shell">
+<section class="card">
+  <header class="page-header"><h1>Jo &amp; Shayne</h1><div class="subtitle">RSVP</div></header>
+  <div class="intro">
+    <p>We're so excited to celebrate our special day with you!</p>
+    <p>Please take a moment to complete this RSVP form and let us know if you'll be joining us.</p>
+    <div class="details">
+      <p><strong>Date</strong><br>March 18, 2027, 1:00 PM</p>
+      <p><strong>Ceremony</strong><br>Immaculate Conception Church<br>4 P. Ledesma St, Aurora Hill<br>Baguio, Benguet</p>
+      <p><strong>Reception</strong><br>El Retiro<br>20 Outlook Dr S<br>Baguio, Benguet</p>
+      <p class="deadline">Kindly submit your RSVP by <strong>January 15, 2027</strong>.</p>
+      <p>We can't wait to celebrate with you! 🥂✨</p>
+    </div>
+  </div>
+  <hr>
+  <section class="invite-section">
+    <form id="inviteForm" novalidate>
+      <label for="inviteCode">Invitation Code</label>
+      <small>Found on your wedding invitation</small>
+      <input type="text" id="inviteCode" name="inviteCode" placeholder="Enter invitation code" autocomplete="off" autocapitalize="characters" spellcheck="false" required>
+      <button type="submit" id="lookupButton">Continue</button>
+    </form>
+    <div id="statusMessage" class="status-message" role="status" aria-live="polite"></div>
+  </section>
+
+  <section id="rsvpSection" class="rsvp-section hidden" aria-live="polite">
+    <div class="section-heading"><p class="eyebrow">RSVP Confirmation</p><h2 id="rsvpGuestName">Guest</h2><p id="seatSummary"></p></div>
+    <form id="rsvpForm" novalidate>
+      <fieldset class="form-group">
+        <legend>Will you be attending?</legend>
+        <div class="choice-grid">
+          <label class="choice-card"><input type="radio" name="attendance" value="Accept"><span>Joyfully Accept</span></label>
+          <label class="choice-card"><input type="radio" name="attendance" value="Decline"><span>Regretfully Decline</span></label>
+        </div>
+      </fieldset>
+
+      <div id="acceptanceFields" class="hidden">
+        <div class="form-group">
+          <label for="attendingCount">Number Attending</label>
+          <select id="attendingCount" name="attendingCount"><option value="">Select number attending</option></select>
+          <small id="maximumSeatsText"></small>
         </div>
 
-    </div>
+        <div id="attendeeNamesSection" class="form-group hidden">
+          <h3>Names of Attendees</h3>
+          <p class="field-help">Please enter one name for each attendee.</p>
+          <div id="attendeeFields"></div>
+        </div>
 
-    <script src="app.js"></script>
+        <fieldset class="form-group">
+          <legend>Dietary Restrictions <span class="optional">Optional</span></legend>
+          <p class="field-help">Select all that apply.</p>
+          <div class="checkbox-grid">
+            <label class="checkbox-option"><input type="checkbox" name="dietary" value="None" id="dietaryNone"><span>None</span></label>
+            <label class="checkbox-option"><input type="checkbox" name="dietary" value="Vegetarian"><span>Vegetarian</span></label>
+            <label class="checkbox-option"><input type="checkbox" name="dietary" value="Vegan"><span>Vegan</span></label>
+            <label class="checkbox-option"><input type="checkbox" name="dietary" value="Seafood Allergy"><span>Seafood Allergy</span></label>
+            <label class="checkbox-option"><input type="checkbox" name="dietary" value="Nut Allergy"><span>Nut Allergy</span></label>
+            <label class="checkbox-option"><input type="checkbox" name="dietary" value="Dairy Allergy"><span>Dairy Allergy</span></label>
+            <label class="checkbox-option"><input type="checkbox" name="dietary" value="Gluten-Free"><span>Gluten-Free</span></label>
+            <label class="checkbox-option"><input type="checkbox" name="dietary" value="Other" id="dietaryOther"><span>Other</span></label>
+          </div>
+          <div id="otherDietarySection" class="conditional-field hidden">
+            <label for="otherDietary">Please specify</label>
+            <input type="text" id="otherDietary" name="otherDietary" placeholder="Enter other dietary restriction">
+          </div>
+        </fieldset>
 
+        <fieldset class="form-group">
+          <legend>Transportation</legend>
+          <p class="field-help">How will your party travel to the wedding?</p>
+          <div class="choice-grid">
+            <label class="choice-card"><input type="radio" name="transportation" value="Public transportation"><span>Public transportation</span></label>
+            <label class="choice-card"><input type="radio" name="transportation" value="Private car"><span>Private car</span></label>
+          </div>
+          <div id="plateSection" class="conditional-field hidden">
+            <label for="plateNumber">Vehicle plate number</label>
+            <input type="text" id="plateNumber" name="plateNumber" placeholder="Enter plate number" autocapitalize="characters">
+          </div>
+        </fieldset>
+
+        <fieldset class="form-group">
+          <legend>Hair and Makeup Service <span class="optional">Optional</span></legend>
+          <div class="info-note">Rates, schedule, and payment details will be provided once the number of interested guests has been confirmed.</div>
+          <p class="field-help">Would anyone in your party like to avail of this service?</p>
+          <div class="choice-grid">
+            <label class="choice-card"><input type="radio" name="hairMakeupInterested" value="Yes"><span>Yes</span></label>
+            <label class="choice-card"><input type="radio" name="hairMakeupInterested" value="No"><span>No</span></label>
+          </div>
+          <div id="hairMakeupSection" class="conditional-field hidden">
+            <label for="hairMakeupCount">How many from your party will avail?</label>
+            <select id="hairMakeupCount" name="hairMakeupCount"><option value="">Select number</option></select>
+            <label for="hairMakeupService">Which service?</label>
+            <select id="hairMakeupService" name="hairMakeupService">
+              <option value="">Select service</option>
+              <option value="Makeup">Makeup</option>
+              <option value="Hair">Hair</option>
+              <option value="Both">Both hair and makeup</option>
+            </select>
+          </div>
+        </fieldset>
+      </div>
+
+      <div id="formError" class="form-error hidden" role="alert"></div>
+      <button type="submit" id="submitRsvpButton">Submit RSVP</button>
+    </form>
+  </section>
+
+  <section id="thankYouSection" class="thank-you-section hidden" aria-live="polite">
+    <p class="eyebrow">RSVP Received</p><h2>Thank You</h2>
+    <p id="thankYouMessage">Your RSVP has been received.</p>
+    <p>We look forward to celebrating with you on March 18, 2027.</p>
+    <div class="signature">Jo &amp; Shayne</div>
+  </section>
+</section>
+</main>
+
+<div id="welcomeModal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-card">
+    <p id="modalEyebrow" class="modal-eyebrow">Welcome</p>
+    <h2 id="modalTitle">Guest Name</h2>
+    <div id="modalMessage" class="modal-message"></div>
+    <div id="reservedSeatCard" class="reserved-seat-card"><span>Reserved Seats</span><strong id="modalSeatCount">0</strong></div>
+    <button type="button" id="modalContinueButton">Continue</button>
+  </div>
+</div>
+<script src="app.js"></script>
 </body>
-
 </html>
