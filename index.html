@@ -1,35 +1,70 @@
-<!DOCTYPE html>
-<html>
+<div class="card">
 
-<head>
-    <title>Johannes & Marie Wedding RSVP</title>
+    <h1>Jo & Shayne</h1>
 
-    <link rel="stylesheet" href="style.css">
-</head>
+    <div class="subtitle">
+        RSVP
+    </div>
 
-<body>
+    <div class="intro">
 
-    <div class="card">
+        <p>
+            We're so excited to celebrate our special day with you!
+        </p>
 
-        <h1>Johannes ❤️ Shayne</h1>
+        <p>
+            Please take a moment to complete this RSVP form and let us know if you'll be joining us.
+        </p>
 
-        <p>Please enter your invitation code</p>
+        <div class="details">
 
-        <input
-            type="text"
-            id="inviteCode"
-            placeholder="Enter Invitation Code">
+            <p>
+                <strong>Date:</strong><br>
+                March 18, 2027, 1:00 PM
+            </p>
 
-        <button onclick="lookupGuest()">
-            Continue
-        </button>
+            <p>
+                <strong>Ceremony:</strong><br>
+                Immaculate Conception Church<br>
+                4 P. Ledesma St, Aurora Hill,<br>
+                Baguio, Benguet
+            </p>
 
-        <div id="result"></div>
+            <p>
+                <strong>Reception:</strong><br>
+                El Retiro<br>
+                20 Outlook Dr S,<br>
+                Baguio, Benguet
+            </p>
+
+            <p class="deadline">
+                Kindly submit your RSVP by
+                <strong>January 15, 2027</strong>.
+            </p>
+
+            <p>
+                We can't wait to celebrate with you! 🥂✨
+            </p>
+
+        </div>
 
     </div>
 
-    <script src="app.js"></script>
+    <hr>
 
-</body>
+    <p>
+        Please enter your invitation code.
+    </p>
 
-</html>
+    <input
+        type="text"
+        id="inviteCode"
+        placeholder="Invitation Code">
+
+    <button onclick="lookupGuest()">
+        Continue
+    </button>
+
+    <div id="result"></div>
+
+</div>
