@@ -1,3 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jo & Shayne RSVP</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
 <div class="card">
 
     <h1>Jo & Shayne</h1>
@@ -19,21 +36,21 @@
         <div class="details">
 
             <p>
-                <strong>Date:</strong><br>
+                <strong>Date</strong><br>
                 March 18, 2027, 1:00 PM
             </p>
 
             <p>
-                <strong>Ceremony:</strong><br>
+                <strong>Ceremony</strong><br>
                 Immaculate Conception Church<br>
-                4 P. Ledesma St, Aurora Hill,<br>
+                4 P. Ledesma St, Aurora Hill<br>
                 Baguio, Benguet
             </p>
 
             <p>
-                <strong>Reception:</strong><br>
+                <strong>Reception</strong><br>
                 El Retiro<br>
-                20 Outlook Dr S,<br>
+                20 Outlook Dr S<br>
                 Baguio, Benguet
             </p>
 
@@ -52,19 +69,33 @@
 
     <hr>
 
-    <p>
-        Please enter your invitation code. (Found on your Wedding Invitation)
-    </p>
+    <div class="invite-section">
 
-    <input
-        type="text"
-        id="inviteCode"
-        placeholder="Invitation Code">
+        <p>
+            Invitation Code
+        </p>
 
-    <button onclick="lookupGuest()">
-        Continue
-    </button>
+        <small>
+            (Found on your wedding invitation)
+        </small>
 
-    <div id="result"></div>
+        <input
+            type="text"
+            id="inviteCode"
+            placeholder="Invitation Code">
+
+        <button onclick="lookupGuest()">
+            Continue
+        </button>
+
+        <div id="result"></div>
+
+    </div>
 
 </div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
+``
