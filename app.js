@@ -8,6 +8,13 @@ function lookupGuest() {
         .value
         .trim();
 
+    if (!code) {
+
+        alert("Please enter your invitation code.");
+        return;
+
+    }
+
     fetch(
         API_URL +
         "?code=" +
@@ -20,7 +27,7 @@ function lookupGuest() {
 
         document.getElementById("result")
         .innerHTML =
-        `<pre>${JSON.stringify(data,null,2)}</pre>`;
+        `<pre>${JSON.stringify(data, null, 2)}</pre>`;
 
     })
 
