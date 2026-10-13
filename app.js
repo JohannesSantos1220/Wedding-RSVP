@@ -3,16 +3,14 @@ const API_URL =
 
 function lookupGuest() {
 
-    const code =
-        document.getElementById("inviteCode")
+    const code = document
+        .getElementById("inviteCode")
         .value
         .trim();
 
     if (!code) {
-
         alert("Please enter your invitation code.");
         return;
-
     }
 
     fetch(
@@ -20,42 +18,37 @@ function lookupGuest() {
         "?code=" +
         encodeURIComponent(code)
     )
-
     .then(response => response.json())
-
     .then(data => {
+
+        console.log(data);
 
         if (data.success) {
 
-            document.getElementById("result")
-            .innerHTML = `
+            document.getElementById("result").innerHTML = `
 
-            <div class="modal-overlay">
+                <div class="welcome-card">
 
-                <div class="modal-card">
-
-                    <div class="welcome-title">
+                    <h2 class="welcome-heading">
                         Welcome
-                    </div>
+                    </h2>
 
                     <div class="guest-name">
                         ${data.guest}
                     </div>
 
                     <p class="welcome-message">
-
                         We are honored to celebrate
                         our special day with you.
-
                     </p>
 
-                    <div class="reserved-box">
+                    <div class="seat-box">
 
-                        <div class="reserved-label">
+                        <div class="seat-label">
                             Reserved Seats
                         </div>
 
-                        <div class="reserved-number">
+                        <div class="seat-number">
                             ${data.seats}
                         </div>
 
@@ -63,7 +56,7 @@ function lookupGuest() {
 
                     <button
                         class="continue-button"
-                        onclick="showRSVPForm('${data.guest}',${data.seats})">
+                        onclick="showRSVPForm('${data.guest}', ${data.seats})">
 
                         Continue to RSVP
 
@@ -71,17 +64,19 @@ function lookupGuest() {
 
                 </div>
 
-            </div>
+            `;
+
+        } else {
+
+            document.getElementById("result").innerHTML = `
+
+                <div class="error-card">
+                    Sorry, we could not find that invitation code.
+                </div>
 
             `;
 
         }
 
-        else {
-
-            document.getElementById("result")
-            .innerHTML = `
-
-            <div class="error-card">
-
-             
+    })
+    .catch
