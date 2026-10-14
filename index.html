@@ -10,6 +10,7 @@
 <body>
 <main class="page-shell">
 <section class="card">
+  <img class="hero-image" src="assets/hero.jpg" alt="Jo and Shayne wedding photo" onerror="this.hidden=true">
   <header class="page-header"><h1>Jo &amp; Shayne</h1><div class="subtitle">RSVP</div></header>
   <div class="intro">
     <p>We're so excited to celebrate our special day with you!</p>
@@ -27,7 +28,7 @@
     <form id="inviteForm" novalidate>
       <label for="inviteCode">Invitation Code</label>
       <small>Found on your wedding invitation</small>
-      <input type="text" id="inviteCode" name="inviteCode" placeholder="Enter invitation code" autocomplete="off" autocapitalize="characters" spellcheck="false" required>
+      <input type="text" id="inviteCode" placeholder="Enter invitation code" autocomplete="off" autocapitalize="characters" spellcheck="false" required>
       <button type="submit" id="lookupButton">Continue</button>
     </form>
     <div id="statusMessage" class="status-message" role="status" aria-live="polite"></div>
@@ -47,14 +48,18 @@
       <div id="acceptanceFields" class="hidden">
         <div class="form-group">
           <label for="attendingCount">Number Attending</label>
-          <select id="attendingCount" name="attendingCount"><option value="">Select number attending</option></select>
+          <select id="attendingCount"><option value="">Select number attending</option></select>
           <small id="maximumSeatsText"></small>
         </div>
 
         <div id="attendeeNamesSection" class="form-group hidden">
-          <h3>Names of Attendees</h3>
-          <p class="field-help">Please enter one name for each attendee.</p>
-          <div id="attendeeFields"></div>
+          <h3>Names of Attendees</h3><p class="field-help">Please enter one name for each attendee.</p><div id="attendeeFields"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="mobileNumber">Mobile Number</label>
+          <p class="field-help">For wedding-related updates and coordination only.</p>
+          <input type="tel" id="mobileNumber" inputmode="tel" autocomplete="tel" placeholder="09XXXXXXXXX or +639XXXXXXXXX">
         </div>
 
         <fieldset class="form-group">
@@ -70,22 +75,38 @@
             <label class="checkbox-option"><input type="checkbox" name="dietary" value="Gluten-Free"><span>Gluten-Free</span></label>
             <label class="checkbox-option"><input type="checkbox" name="dietary" value="Other" id="dietaryOther"><span>Other</span></label>
           </div>
-          <div id="otherDietarySection" class="conditional-field hidden">
-            <label for="otherDietary">Please specify</label>
-            <input type="text" id="otherDietary" name="otherDietary" placeholder="Enter other dietary restriction">
-          </div>
+          <div id="otherDietarySection" class="conditional-field hidden"><label for="otherDietary">Please specify</label><input type="text" id="otherDietary" placeholder="Enter other dietary restriction"></div>
         </fieldset>
 
         <fieldset class="form-group">
           <legend>Transportation</legend>
           <p class="field-help">How will your party travel to the wedding?</p>
-          <div class="choice-grid">
+          <div class="choice-grid choice-grid-three">
             <label class="choice-card"><input type="radio" name="transportation" value="Public transportation"><span>Public transportation</span></label>
             <label class="choice-card"><input type="radio" name="transportation" value="Private car"><span>Private car</span></label>
+            <label class="choice-card"><input type="radio" name="transportation" value="Others"><span>Other / Not final</span></label>
           </div>
-          <div id="plateSection" class="conditional-field hidden">
-            <label for="plateNumber">Vehicle plate number</label>
-            <input type="text" id="plateNumber" name="plateNumber" placeholder="Enter plate number" autocapitalize="characters">
+
+          <div id="privateCarSection" class="conditional-panel hidden">
+            <p class="field-help">Will you use a personal vehicle or carpool?</p>
+            <div class="choice-grid">
+              <label class="choice-card"><input type="radio" name="privateCarType" value="Personal vehicle"><span>Personal vehicle</span></label>
+              <label class="choice-card"><input type="radio" name="privateCarType" value="Carpooling"><span>Carpooling</span></label>
+            </div>
+          </div>
+
+          <div id="plateSection" class="conditional-field hidden"><label for="plateNumber">Vehicle plate number</label><input type="text" id="plateNumber" placeholder="Enter plate number" autocapitalize="characters"></div>
+
+          <div id="carpoolSection" class="conditional-field hidden">
+            <label for="carpoolWith">Whose car will you be carpooling with?</label>
+            <p class="field-help">Enter the name of the guest or driver whose vehicle you will ride in.</p>
+            <input type="text" id="carpoolWith" placeholder="Name of guest or driver">
+          </div>
+
+          <div id="otherTransportationSection" class="conditional-field hidden">
+            <label for="otherTransportation">Please specify your transportation plan</label>
+            <p class="field-help">If your transportation is not yet final, you may indicate your current plan below.</p>
+            <input type="text" id="otherTransportation" placeholder="Example: Still arranging transportation">
           </div>
         </fieldset>
 
@@ -99,14 +120,9 @@
           </div>
           <div id="hairMakeupSection" class="conditional-field hidden">
             <label for="hairMakeupCount">How many from your party will avail?</label>
-            <select id="hairMakeupCount" name="hairMakeupCount"><option value="">Select number</option></select>
+            <select id="hairMakeupCount"><option value="">Select number</option></select>
             <label for="hairMakeupService">Which service?</label>
-            <select id="hairMakeupService" name="hairMakeupService">
-              <option value="">Select service</option>
-              <option value="Makeup">Makeup</option>
-              <option value="Hair">Hair</option>
-              <option value="Both">Both hair and makeup</option>
-            </select>
+            <select id="hairMakeupService"><option value="">Select service</option><option value="Makeup">Makeup</option><option value="Hair">Hair</option><option value="Both">Both hair and makeup</option></select>
           </div>
         </fieldset>
       </div>
@@ -116,24 +132,11 @@
     </form>
   </section>
 
-  <section id="thankYouSection" class="thank-you-section hidden" aria-live="polite">
-    <p class="eyebrow">RSVP Received</p><h2>Thank You</h2>
-    <p id="thankYouMessage">Your RSVP has been received.</p>
-    <p>We look forward to celebrating with you on March 18, 2027.</p>
-    <div class="signature">Jo &amp; Shayne</div>
-  </section>
+  <section id="thankYouSection" class="thank-you-section hidden" aria-live="polite"><p class="eyebrow">RSVP Received</p><h2>Thank You</h2><p id="thankYouMessage"></p><p>We look forward to celebrating with you on March 18, 2027.</p><div class="signature">Jo &amp; Shayne</div></section>
 </section>
 </main>
 
-<div id="welcomeModal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <div class="modal-card">
-    <p id="modalEyebrow" class="modal-eyebrow">Welcome</p>
-    <h2 id="modalTitle">Guest Name</h2>
-    <div id="modalMessage" class="modal-message"></div>
-    <div id="reservedSeatCard" class="reserved-seat-card"><span>Reserved Seats</span><strong id="modalSeatCount">0</strong></div>
-    <button type="button" id="modalContinueButton">Continue</button>
-  </div>
-</div>
+<div id="welcomeModal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-card"><p id="modalEyebrow" class="modal-eyebrow">Welcome</p><h2 id="modalTitle">Guest Name</h2><div id="modalMessage" class="modal-message"></div><div id="reservedSeatCard" class="reserved-seat-card"><span>Reserved Seats</span><strong id="modalSeatCount">0</strong></div><button type="button" id="modalContinueButton">Continue</button></div></div>
 <script src="app.js"></script>
 </body>
 </html>
