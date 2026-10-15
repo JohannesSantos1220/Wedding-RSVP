@@ -1163,7 +1163,7 @@ function launchConfetti() {
 
     for (
         let index = 0;
-        index < 100;
+        index < 155;
         index += 1
     ) {
         const piece =
@@ -1178,10 +1178,10 @@ function launchConfetti() {
         piece.style.top = "-20px";
 
         piece.style.width =
-            `${6 + Math.random() * 7}px`;
+            `${6 + Math.random() * 8}px`;
 
         piece.style.height =
-            `${8 + Math.random() * 9}px`;
+            `${8 + Math.random() * 10}px`;
 
         piece.style.background =
             colors[
